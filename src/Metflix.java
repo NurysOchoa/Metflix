@@ -20,6 +20,10 @@ public class Metflix {
         Actor actor = new Actor();
         actor.nombre = "Leo DiCaprio";
 
+        Director james = new Director();
+        james.nombre = "James Cameron";
+        titanic.director = james;
+
         //Agrego a la lista de actores del objeto titanic
         titanic.actores.add(actor); //metodo Add -> agregar a una lista
 
@@ -40,7 +44,70 @@ public class Metflix {
 
         batman.actores.add(actor);
 
+        Director nolan = new Director();
+        nolan.nombre = "Christopher Nolan";
+        batman.director = nolan;
+
+
         this.peliculas.add(batman);
+
+        //Mis peliculas
+
+         Pelicula sleepers = new Pelicula(); //se hizo en un solo paso
+
+         sleepers.nombre = "Sleepers";
+         sleepers.añoLanzamiento = 1996;
+         sleepers.duracion = 147;
+
+         actor = new Actor();   //reuso la variable ya creada
+         actor.nombre = "Robert De Niro";
+         sleepers.actores.add(actor);
+
+         Director barry = new Director();
+         barry.nombre = "Barry Levison";
+         sleepers.director = barry;
+
+        
+         this.peliculas.add(sleepers);
+
+        //_____________________________________________________________
+
+         Pelicula mammaMia = new Pelicula(); //se hizo en un solo paso
+
+         mammaMia.nombre = "Mamma Mia";
+         mammaMia.añoLanzamiento = 1999;
+         mammaMia.duracion = 110;
+
+         actor = new Actor();   //reuso la variable ya creada
+         actor.nombre = "Meryl Streep";
+         mammaMia.actores.add(actor);
+
+         Director lloyd = new Director();
+         lloyd.nombre = "Phyllida Lloyd";
+         mammaMia.director = lloyd;
+
+        
+         this.peliculas.add(mammaMia);
+
+         //____________________________________________________________
+
+         Pelicula laPielQueHabito = new Pelicula(); //se hizo en un solo paso
+
+         laPielQueHabito.nombre = "La piel que habito";
+         laPielQueHabito.añoLanzamiento = 2011;
+         laPielQueHabito.duracion = 125;
+
+         actor = new Actor();   //reuso la variable ya creada
+         actor.nombre = " Antonio Banderas ";
+         laPielQueHabito.actores.add(actor);
+
+         Director pedro = new Director();
+         pedro.nombre = "Pedro Almodovar";
+         laPielQueHabito.director = james;
+
+         this.peliculas.add(laPielQueHabito);
+
+
 
         //How I met your mother. Serie
 
@@ -160,8 +227,43 @@ public class Metflix {
 
     }
 
+    //Buscar Pelicula
+    public Pelicula buscarPelicula(String nombreABuscar){
 
+        //vamos a usar el foreach: que sirve para recorrer listas
+        //este ciclo, tiene una variable, que apunta en cada vuelta
+        //a cada elemento de la lista
+        
+        for (Pelicula pelicula : this.peliculas) {
+            //pregunto si el nombre de la pelicula actual
+            //que estoy recorriendo es la que necesito
+            if (pelicula.nombre.equals(nombreABuscar))
+                return pelicula; //devuelvo esta pelicula
+        }
+        //si llego hasta aca, es porque no encontro la pelicula
+        return null;
+
+    }
 
     //buscar un director
+
+    public Director buscarDirector(String nombreABuscar){
+  
+        //vamos a usar el foreach: que sirve para recorrer listas
+        //este ciclo, tiene una variable, que apunta en cada vuelta
+        //a cada elemento de la lista
+        
+        for (Pelicula pelicula : this.peliculas) {
+            //pregunto si el nombre de la pelicula actual
+            //que estoy recorriendo es la que necesito
+            if (pelicula.nombre.equals(nombreABuscar))
+                return pelicula.director; //devuelvo esta pelicula
+        }
+        //si llego hasta aca, es porque no encontro la pelicula
+        return null;
+
+    }
     //
 }
+    //como hago para que solo busque la pelicula y no la serie?
+    //por que hay una letra M al lado de mis clases en el listado src?
